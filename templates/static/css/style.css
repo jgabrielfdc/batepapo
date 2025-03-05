@@ -1,0 +1,31 @@
+/* Estilo para a janela de chat */
+#chat-window {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para as mensagens */
+#messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    word-wrap: break-word;
+}
+
+/* Estilo para mensagens enviadas pelo usuário */
+#messages li.my-message {
+    background-color: #007bff;
+    color: white;
+    text-align: right;
+}
+
+/* Estilo para o botão de enviar */
+#sendButton {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
