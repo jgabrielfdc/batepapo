@@ -1,25 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Conecta ao servidor Socket.IO
     const socket = io.connect('https://' + document.domain + ':' + location.port);
 
-    // Elementos do DOM
     const messageInput = document.getElementById('myMessage');
     const sendButton = document.getElementById('sendButton');
     const messagesList = document.getElementById('messages');
 
-    // Envia mensagem quando o botão é clicado
-    sendButton.addEventListener('click', function() {
+    // Função para enviar mensagem
+    function sendMessage() {
         const msg = messageInput.value.trim();
         if (msg) {
             socket.send(msg);  // Envia a mensagem para o servidor
             messageInput.value = '';  // Limpa o campo de entrada
         }
-    });
+    }
+
+    // Envia mensagem ao clicar no botão
+    sendButton.addEventListener('click', sendMessage);
 
     // Envia mensagem ao pressionar Enter
     messageInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
-            sendButton.click();
+            sendMessage();
         }
     });
 
