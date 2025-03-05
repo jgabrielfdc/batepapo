@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, send
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sua_chave_secreta_aqui'
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")  # Permite todas as origens (para teste)
 
 @app.route('/')
 def index():
@@ -11,7 +11,7 @@ def index():
 
 @socketio.on('message')
 def handleMessage(msg):
-    print('Message: ' + msg)
+    print('Mensagem recebida:', msg)
     send(msg, broadcast=True)
 
 if __name__ == '__main__':
